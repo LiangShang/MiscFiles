@@ -1,0 +1,942 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  Internal Error (sharedRuntime.cpp:814), pid=13283, tid=139957487609600
+#  guarantee(cb->is_adapter_blob() || cb->is_method_handles_adapter_blob()) failed: exception happened outside interpreter, nmethods and vtable stubs (1)
+#
+# JRE version: Java(TM) SE Runtime Environment (7.0_55-b13) (build 1.7.0_55-b13)
+# Java VM: Java HotSpot(TM) 64-Bit Server VM (24.55-b03 mixed mode linux-amd64 compressed oops)
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.sun.com/bugreport/crash.jsp
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x00007f4a4410d800):  JavaThread "elasticsearch[Tigra][search][T#4]" daemon [_thread_in_Java, id=31390, stack(0x00007f4a64452000,0x00007f4a64553000)]
+
+Stack: [0x00007f4a64452000,0x00007f4a64553000],  sp=0x00007f4a64550e10,  free space=1019k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+V  [libjvm.so+0x99305a]  VMError::report_and_die()+0x2ea
+V  [libjvm.so+0x493262]  report_vm_error(char const*, int, char const*, char const*)+0x62
+V  [libjvm.so+0x8a6b63]  SharedRuntime::continuation_for_implicit_exception(JavaThread*, unsigned char*, SharedRuntime::ImplicitExceptionKind)+0x323
+V  [libjvm.so+0x8191b6]  JVM_handle_linux_signal+0x446
+
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x00007f4a4008f000 JavaThread "elasticsearch[Tigra][merge][T#10]" daemon [_thread_blocked, id=21722, stack(0x00007f4a64553000,0x00007f4a64654000)]
+  0x00007f4a40003800 JavaThread "elasticsearch[Tigra][flush][T#12]" daemon [_thread_blocked, id=21592, stack(0x00007f4a052f3000,0x00007f4a053f4000)]
+  0x00007f4a400b6000 JavaThread "elasticsearch[Tigra][refresh][T#6]" daemon [_thread_blocked, id=20441, stack(0x00007f4a02e33000,0x00007f4a02f34000)]
+  0x00007f4a14122800 JavaThread "elasticsearch[Tigra][generic][T#28]" daemon [_thread_blocked, id=20358, stack(0x00007f4a6414f000,0x00007f4a64250000)]
+  0x00007f4a20036000 JavaThread "elasticsearch[Tigra][fetch_shard_store][T#15]" daemon [_thread_blocked, id=20355, stack(0x00007f4a64856000,0x00007f4a64957000)]
+  0x00007f4a20035000 JavaThread "elasticsearch[Tigra][warmer][T#20]" daemon [_thread_blocked, id=9076, stack(0x00007f4a0c461000,0x00007f4a0c562000)]
+  0x00007f4a44112000 JavaThread "elasticsearch[Tigra][search][T#7]" daemon [_thread_blocked, id=31393, stack(0x00007f4a07030000,0x00007f4a07131000)]
+  0x00007f4a4410f800 JavaThread "elasticsearch[Tigra][search][T#6]" daemon [_thread_blocked, id=31392, stack(0x00007f4a0776a000,0x00007f4a0786b000)]
+  0x00007f4a4410e000 JavaThread "elasticsearch[Tigra][search][T#5]" daemon [_thread_blocked, id=31391, stack(0x00007f4a06479000,0x00007f4a0657a000)]
+=>0x00007f4a4410d800 JavaThread "elasticsearch[Tigra][search][T#4]" daemon [_thread_in_Java, id=31390, stack(0x00007f4a64452000,0x00007f4a64553000)]
+  0x00007f4a4410c800 JavaThread "elasticsearch[Tigra][search][T#3]" daemon [_thread_blocked, id=31389, stack(0x00007f4a4c2ea000,0x00007f4a4c3eb000)]
+  0x00007f4a4408e000 JavaThread "elasticsearch[Tigra][search][T#2]" daemon [_thread_blocked, id=31388, stack(0x00007f4a65b69000,0x00007f4a65c6a000)]
+  0x00007f4a4408d000 JavaThread "elasticsearch[Tigra][search][T#1]" daemon [_thread_blocked, id=31387, stack(0x00007f4a0c25f000,0x00007f4a0c360000)]
+  0x00007f4a08116000 JavaThread "elasticsearch[Tigra][bulk][T#4]" daemon [_thread_blocked, id=592, stack(0x00007f4a0c764000,0x00007f4a0c865000)]
+  0x00007f4a10118000 JavaThread "elasticsearch[Tigra][bulk][T#3]" daemon [_thread_blocked, id=591, stack(0x00007f4a64957000,0x00007f4a64a58000)]
+  0x00007f4a10119800 JavaThread "elasticsearch[Tigra][bulk][T#2]" daemon [_thread_blocked, id=590, stack(0x00007f4a64250000,0x00007f4a64351000)]
+  0x00007f4a10116800 JavaThread "elasticsearch[Tigra][bulk][T#1]" daemon [_thread_blocked, id=589, stack(0x00007f4a65866000,0x00007f4a65967000)]
+  0x00007f4a20189000 JavaThread "elasticsearch[Tigra][riverClusterService#updateTask][T#1]" daemon [_thread_blocked, id=14349, stack(0x00007f4a64351000,0x00007f4a64452000)]
+  0x00007f4a10083000 JavaThread "elasticsearch[Tigra][management][T#5]" daemon [_thread_blocked, id=13917, stack(0x00007f4a65a68000,0x00007f4a65b69000)]
+  0x00007f4a0810c800 JavaThread "elasticsearch[Tigra][management][T#3]" daemon [_thread_blocked, id=13684, stack(0x00007f4a0e5e8000,0x00007f4a0e6e9000)]
+  0x00007f4a14106000 JavaThread "elasticsearch[Tigra][management][T#4]" daemon [_thread_blocked, id=13683, stack(0x00007f4a4c04a000,0x00007f4a4c14b000)]
+  0x00007f4a1008d800 JavaThread "elasticsearch[Tigra][management][T#2]" daemon [_thread_blocked, id=13682, stack(0x00007f4a6404e000,0x00007f4a6414f000)]
+  0x00007f4a08106800 JavaThread "elasticsearch[Tigra][listener][T#2]" daemon [_thread_blocked, id=13541, stack(0x00007f4a64b59000,0x00007f4a64c5a000)]
+  0x00007f4a08105000 JavaThread "elasticsearch[Tigra][listener][T#1]" daemon [_thread_blocked, id=13490, stack(0x00007f4a64c5a000,0x00007f4a64d5b000)]
+  0x00007f4a98009800 JavaThread "DestroyJavaVM" [_thread_blocked, id=13288, stack(0x00007f4aa055f000,0x00007f4aa0660000)]
+  0x00007f4a98903000 JavaThread "elasticsearch[keepAlive/1.6.2]" [_thread_blocked, id=13488, stack(0x00007f4a64d5b000,0x00007f4a64e5c000)]
+  0x00007f4a98900000 JavaThread "elasticsearch[Tigra][http_server_boss][T#1]{New I/O server boss #27}" daemon [_thread_in_native, id=13487, stack(0x00007f4a64e5c000,0x00007f4a64f5d000)]
+  0x00007f4a988ad000 JavaThread "elasticsearch[Tigra][http_server_worker][T#8]{New I/O worker #26}" daemon [_thread_in_native, id=13486, stack(0x00007f4a64f5d000,0x00007f4a6505e000)]
+  0x00007f4a988ab000 JavaThread "elasticsearch[Tigra][http_server_worker][T#7]{New I/O worker #25}" daemon [_thread_in_native, id=13485, stack(0x00007f4a6505e000,0x00007f4a6515f000)]
+  0x00007f4a08101800 JavaThread "elasticsearch[Tigra][management][T#1]" daemon [_thread_blocked, id=13484, stack(0x00007f4a6515f000,0x00007f4a65260000)]
+  0x00007f4a98839800 JavaThread "elasticsearch[Tigra][http_server_worker][T#6]{New I/O worker #24}" daemon [_thread_in_native, id=13483, stack(0x00007f4a65260000,0x00007f4a65361000)]
+  0x00007f4a98838000 JavaThread "elasticsearch[Tigra][http_server_worker][T#5]{New I/O worker #23}" daemon [_thread_in_native, id=13482, stack(0x00007f4a65361000,0x00007f4a65462000)]
+  0x00007f4a98836800 JavaThread "elasticsearch[Tigra][http_server_worker][T#4]{New I/O worker #22}" daemon [_thread_in_native, id=13481, stack(0x00007f4a65462000,0x00007f4a65563000)]
+  0x00007f4a98835000 JavaThread "elasticsearch[Tigra][http_server_worker][T#3]{New I/O worker #21}" daemon [_thread_in_native, id=13480, stack(0x00007f4a65563000,0x00007f4a65664000)]
+  0x00007f4a98833800 JavaThread "elasticsearch[Tigra][http_server_worker][T#2]{New I/O worker #20}" daemon [_thread_in_native, id=13479, stack(0x00007f4a65664000,0x00007f4a65765000)]
+  0x00007f4a98e6e800 JavaThread "elasticsearch[Tigra][http_server_worker][T#1]{New I/O worker #19}" daemon [_thread_in_native, id=13478, stack(0x00007f4a65765000,0x00007f4a65866000)]
+  0x00007f4a1c001000 JavaThread "elasticsearch[Tigra][transport_client_timer][T#1]{Hashed wheel timer #1}" daemon [_thread_blocked, id=13444, stack(0x00007f4a65967000,0x00007f4a65a68000)]
+  0x00007f4a98e6c800 JavaThread "elasticsearch[Tigra][clusterService#updateTask][T#1]" daemon [_thread_blocked, id=13441, stack(0x00007f4a65c6a000,0x00007f4a65d6b000)]
+  0x00007f4a98e69000 JavaThread "elasticsearch[Tigra][discovery#multicast#receiver][T#1]" daemon [_thread_in_native, id=13440, stack(0x00007f4a65d6b000,0x00007f4a65e6c000)]
+  0x00007f4a98e3b000 JavaThread "elasticsearch[Tigra][[http_server_boss.default]][T#1]{New I/O server boss #18}" daemon [_thread_in_native, id=13439, stack(0x00007f4a65e6c000,0x00007f4a65f6d000)]
+  0x00007f4a98e2a000 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#8]{New I/O worker #17}" daemon [_thread_in_native, id=13438, stack(0x00007f4a65f6d000,0x00007f4a6606e000)]
+  0x00007f4a98cef800 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#7]{New I/O worker #16}" daemon [_thread_in_native, id=13437, stack(0x00007f4a6606e000,0x00007f4a6616f000)]
+  0x00007f4a98ced800 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#6]{New I/O worker #15}" daemon [_thread_in_native, id=13436, stack(0x00007f4a84048000,0x00007f4a84149000)]
+  0x00007f4a98ceb800 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#5]{New I/O worker #14}" daemon [_thread_in_native, id=13435, stack(0x00007f4a84149000,0x00007f4a8424a000)]
+  0x00007f4a98ce9000 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#4]{New I/O worker #13}" daemon [_thread_in_native, id=13434, stack(0x00007f4a8424a000,0x00007f4a8434b000)]
+  0x00007f4a98ce7800 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#3]{New I/O worker #12}" daemon [_thread_in_native, id=13433, stack(0x00007f4a8434b000,0x00007f4a8444c000)]
+  0x00007f4a98ce1800 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#2]{New I/O worker #11}" daemon [_thread_in_native, id=13432, stack(0x00007f4a8444c000,0x00007f4a8454d000)]
+  0x00007f4a98ce5000 JavaThread "elasticsearch[Tigra][[http_server_worker.default]][T#1]{New I/O worker #10}" daemon [_thread_in_native, id=13431, stack(0x00007f4a8454d000,0x00007f4a8464e000)]
+  0x00007f4a98ae9000 JavaThread "elasticsearch[Tigra][transport_client_boss][T#1]{New I/O boss #9}" daemon [_thread_in_native, id=13430, stack(0x00007f4a8464e000,0x00007f4a8474f000)]
+  0x00007f4a98ae7800 JavaThread "elasticsearch[Tigra][transport_client_worker][T#8]{New I/O worker #8}" daemon [_thread_in_native, id=13429, stack(0x00007f4a8474f000,0x00007f4a84850000)]
+  0x00007f4a98ae6000 JavaThread "elasticsearch[Tigra][transport_client_worker][T#7]{New I/O worker #7}" daemon [_thread_in_native, id=13428, stack(0x00007f4a84850000,0x00007f4a84951000)]
+  0x00007f4a98ae4800 JavaThread "elasticsearch[Tigra][transport_client_worker][T#6]{New I/O worker #6}" daemon [_thread_in_native, id=13427, stack(0x00007f4a84951000,0x00007f4a84a52000)]
+  0x00007f4a98a8e800 JavaThread "elasticsearch[Tigra][transport_client_worker][T#5]{New I/O worker #5}" daemon [_thread_in_native, id=13426, stack(0x00007f4a84a52000,0x00007f4a84b53000)]
+  0x00007f4a98a82000 JavaThread "elasticsearch[Tigra][transport_client_worker][T#4]{New I/O worker #4}" daemon [_thread_in_native, id=13425, stack(0x00007f4a84b53000,0x00007f4a84c54000)]
+  0x00007f4a98a81000 JavaThread "elasticsearch[Tigra][transport_client_worker][T#3]{New I/O worker #3}" daemon [_thread_in_native, id=13424, stack(0x00007f4a84c54000,0x00007f4a84d55000)]
+  0x00007f4a98a86000 JavaThread "elasticsearch[Tigra][transport_client_worker][T#2]{New I/O worker #2}" daemon [_thread_in_native, id=13423, stack(0x00007f4a84d55000,0x00007f4a84e56000)]
+  0x00007f4a98a85800 JavaThread "elasticsearch[Tigra][transport_client_worker][T#1]{New I/O worker #1}" daemon [_thread_in_native, id=13422, stack(0x00007f4a84e56000,0x00007f4a84f57000)]
+  0x00007f4a98a75000 JavaThread "elasticsearch[Tigra][[ttl_expire]]" daemon [_thread_blocked, id=13421, stack(0x00007f4a84f57000,0x00007f4a85058000)]
+  0x00007f4a98a79800 JavaThread "elasticsearch[Tigra][master_mapping_updater]" [_thread_blocked, id=13420, stack(0x00007f4a85058000,0x00007f4a85159000)]
+  0x00007f4a98a56800 JavaThread "elasticsearch[Tigra][scheduler][T#1]" daemon [_thread_blocked, id=13414, stack(0x00007f4a85159000,0x00007f4a8525a000)]
+  0x00007f4a98408800 JavaThread "elasticsearch[Tigra][[timer]]" daemon [_thread_blocked, id=13325, stack(0x00007f4a85391000,0x00007f4a85492000)]
+  0x00007f4a98112800 JavaThread "Service Thread" daemon [_thread_blocked, id=13307, stack(0x00007f4a85cfd000,0x00007f4a85dfe000)]
+  0x00007f4a9810f800 JavaThread "C2 CompilerThread1" daemon [_thread_blocked, id=13305, stack(0x00007f4a85dfe000,0x00007f4a85eff000)]
+  0x00007f4a9810d800 JavaThread "C2 CompilerThread0" daemon [_thread_blocked, id=13304, stack(0x00007f4a85eff000,0x00007f4a86000000)]
+  0x00007f4a9810b000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=13303, stack(0x00007f4a940f2000,0x00007f4a941f3000)]
+  0x00007f4a98101000 JavaThread "Surrogate Locker Thread (Concurrent GC)" daemon [_thread_blocked, id=13302, stack(0x00007f4a941f3000,0x00007f4a942f4000)]
+  0x00007f4a980ea800 JavaThread "Finalizer" daemon [_thread_blocked, id=13301, stack(0x00007f4a942f4000,0x00007f4a943f5000)]
+  0x00007f4a980e6800 JavaThread "Reference Handler" daemon [_thread_blocked, id=13300, stack(0x00007f4a943f5000,0x00007f4a944f6000)]
+
+Other Threads:
+  0x00007f4a980e4000 VMThread [stack: 0x00007f4a944f6000,0x00007f4a945f7000] [id=13299]
+  0x00007f4a9811d800 WatcherThread [stack: 0x00007f4a85bfc000,0x00007f4a85cfd000] [id=13308]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap
+ par new generation   total 78656K, used 6286K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   3% used [0x00000000bae00000, 0x00000000bb076288, 0x00000000bf250000)
+  from space 8704K,  43% used [0x00000000bfad0000, 0x00000000bfe7d6c0, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 357704K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+
+Card table byte_map: [0x00007f4a9d904000,0x00007f4a9db2e000] byte_map_base: 0x00007f4a9d32d000
+
+Polling page: 0x00007f4aa066f000
+
+Code Cache  [0x00007f4a95000000, 0x00007f4a95f20000, 0x00007f4a98000000)
+ total_blobs=5085 nmethods=4550 adapters=486 free_code_cache=33875Kb largest_free_block=34510400
+
+Compilation events (10 events):
+Event: 125358.457 Thread 0x00007f4a9810d800 5241             java.io.ObjectInputStream$HandleTable::lookupObject (26 bytes)
+Event: 125358.459 Thread 0x00007f4a9810d800 nmethod 5241 0x00007f4a95f04010 code [0x00007f4a95f04160, 0x00007f4a95f04238]
+Event: 125358.459 Thread 0x00007f4a9810d800 5242             java.io.ObjectInputStream$HandleTable::size (5 bytes)
+Event: 125358.460 Thread 0x00007f4a9810d800 nmethod 5242 0x00007f4a95ac1b50 code [0x00007f4a95ac1c80, 0x00007f4a95ac1cd8]
+Event: 125358.460 Thread 0x00007f4a9810d800 5243             java.io.ObjectInputStream::readHandle (130 bytes)
+Event: 125358.471 Thread 0x00007f4a9810d800 nmethod 5243 0x00007f4a95ed6710 code [0x00007f4a95ed68c0, 0x00007f4a95ed6cc8]
+Event: 125358.532 Thread 0x00007f4a9810f800 nmethod 5240 0x00007f4a95f12e50 code [0x00007f4a95f131c0, 0x00007f4a95f149c0]
+Event: 125480.037 Thread 0x00007f4a9810d800 5244             org.apache.lucene.util.TimSorter::doRotate (228 bytes)
+Event: 125480.063 Thread 0x00007f4a9810d800 nmethod 5244 0x00007f4a95ee7f10 code [0x00007f4a95ee80c0, 0x00007f4a95ee8720]
+Event: 125605.185 Thread 0x00007f4a9810f800 5245             java.io.ObjectOutputStream$BlockDataOutputStream::writeUTFBody (386 bytes)
+
+GC Heap History (10 events):
+Event: 125575.572 GC heap before
+{Heap before GC invocations=30828 (full 827):
+ par new generation   total 78656K, used 74915K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K, 100% used [0x00000000bae00000, 0x00000000bf250000, 0x00000000bf250000)
+  from space 8704K,  57% used [0x00000000bf250000, 0x00000000bf728d48, 0x00000000bfad0000)
+  to   space 8704K,   0% used [0x00000000bfad0000, 0x00000000bfad0000, 0x00000000c0350000)
+ concurrent mark-sweep generation total 486164K, used 354405K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+Event: 125575.583 GC heap after
+Heap after GC invocations=30829 (full 827):
+ par new generation   total 78656K, used 4868K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   0% used [0x00000000bae00000, 0x00000000bae00000, 0x00000000bf250000)
+  from space 8704K,  55% used [0x00000000bfad0000, 0x00000000bff910a8, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 355326K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+}
+Event: 125583.186 GC heap before
+{Heap before GC invocations=30829 (full 827):
+ par new generation   total 78656K, used 74820K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K, 100% used [0x00000000bae00000, 0x00000000bf250000, 0x00000000bf250000)
+  from space 8704K,  55% used [0x00000000bfad0000, 0x00000000bff910a8, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 355326K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+Event: 125583.196 GC heap after
+Heap after GC invocations=30830 (full 827):
+ par new generation   total 78656K, used 5253K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   0% used [0x00000000bae00000, 0x00000000bae00000, 0x00000000bf250000)
+  from space 8704K,  60% used [0x00000000bf250000, 0x00000000bf771580, 0x00000000bfad0000)
+  to   space 8704K,   0% used [0x00000000bfad0000, 0x00000000bfad0000, 0x00000000c0350000)
+ concurrent mark-sweep generation total 486164K, used 355562K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+}
+Event: 125595.927 GC heap before
+{Heap before GC invocations=30830 (full 827):
+ par new generation   total 78656K, used 75205K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K, 100% used [0x00000000bae00000, 0x00000000bf250000, 0x00000000bf250000)
+  from space 8704K,  60% used [0x00000000bf250000, 0x00000000bf771580, 0x00000000bfad0000)
+  to   space 8704K,   0% used [0x00000000bfad0000, 0x00000000bfad0000, 0x00000000c0350000)
+ concurrent mark-sweep generation total 486164K, used 355562K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+Event: 125595.943 GC heap after
+Heap after GC invocations=30831 (full 827):
+ par new generation   total 78656K, used 5406K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   0% used [0x00000000bae00000, 0x00000000bae00000, 0x00000000bf250000)
+  from space 8704K,  62% used [0x00000000bfad0000, 0x00000000c00178f0, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 356620K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+}
+Event: 125600.121 GC heap before
+{Heap before GC invocations=30831 (full 827):
+ par new generation   total 78656K, used 75358K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K, 100% used [0x00000000bae00000, 0x00000000bf250000, 0x00000000bf250000)
+  from space 8704K,  62% used [0x00000000bfad0000, 0x00000000c00178f0, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 356620K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+Event: 125600.136 GC heap after
+Heap after GC invocations=30832 (full 827):
+ par new generation   total 78656K, used 5224K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   0% used [0x00000000bae00000, 0x00000000bae00000, 0x00000000bf250000)
+  from space 8704K,  60% used [0x00000000bf250000, 0x00000000bf76a200, 0x00000000bfad0000)
+  to   space 8704K,   0% used [0x00000000bfad0000, 0x00000000bfad0000, 0x00000000c0350000)
+ concurrent mark-sweep generation total 486164K, used 357353K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+}
+Event: 125605.082 GC heap before
+{Heap before GC invocations=30832 (full 827):
+ par new generation   total 78656K, used 75176K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K, 100% used [0x00000000bae00000, 0x00000000bf250000, 0x00000000bf250000)
+  from space 8704K,  60% used [0x00000000bf250000, 0x00000000bf76a200, 0x00000000bfad0000)
+  to   space 8704K,   0% used [0x00000000bfad0000, 0x00000000bfad0000, 0x00000000c0350000)
+ concurrent mark-sweep generation total 486164K, used 357353K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+Event: 125605.091 GC heap after
+Heap after GC invocations=30833 (full 827):
+ par new generation   total 78656K, used 3765K [0x00000000bae00000, 0x00000000c0350000, 0x00000000cfac0000)
+  eden space 69952K,   0% used [0x00000000bae00000, 0x00000000bae00000, 0x00000000bf250000)
+  from space 8704K,  43% used [0x00000000bfad0000, 0x00000000bfe7d6c0, 0x00000000c0350000)
+  to   space 8704K,   0% used [0x00000000bf250000, 0x00000000bf250000, 0x00000000bfad0000)
+ concurrent mark-sweep generation total 486164K, used 357704K [0x00000000cfac0000, 0x00000000ed585000, 0x00000000fae00000)
+ concurrent-mark-sweep perm gen total 75328K, used 45195K [0x00000000fae00000, 0x00000000ff790000, 0x0000000100000000)
+}
+
+Deoptimization events (10 events):
+Event: 121049.357 Thread 0x00007f4a10119800 Uncommon trap: reason=null_check action=make_not_entrant pc=0x00007f4a951ce7f8 method=java.lang.ThreadLocal$ThreadLocalMap.getEntryAfterMiss(Ljava/lang/ThreadLocal;ILjava/lang/ThreadLocal$ThreadLocalMap$Entry;)Ljava/lang/ThreadLocal$ThreadLocalMap$Entry; 
+Event: 125114.784 Thread 0x00007f4a98e6c800 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f4a95860538 method=org.elasticsearch.index.mapper.MapperService.documentMapper(Ljava/lang/String;)Lorg/elasticsearch/index/mapper/DocumentMapper; @ 5
+Event: 125352.895 Thread 0x00007f4a44112000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f4a95eece48 method=java.io.ObjectInputStream$PeekInputStream.read([BII)I @ 50
+Event: 125352.896 Thread 0x00007f4a4410e000 Uncommon trap: reason=class_check action=maybe_recompile pc=0x00007f4a95eece48 method=java.io.ObjectInputStream$PeekInputStream.read([BII)I @ 50
+Event: 125354.463 Thread 0x00007f4a4410c800 Uncommon trap: reason=unreached action=reinterpret pc=0x00007f4a9583793c method=org.elasticsearch.common.jackson.core.util.TextBuffer.size()I @ 29
+Event: 125354.482 Thread 0x00007f4a4410f800 Uncommon trap: reason=unreached action=reinterpret pc=0x00007f4a95839d10 method=org.elasticsearch.common.jackson.core.util.TextBuffer.size()I @ 29
+Event: 125354.775 Thread 0x00007f4a98ae7800 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00007f4a95f0bd10 method=java.io.ObjectInputStream.readArray(Z)Ljava/lang/Object; @ 397
+Event: 125354.775 Thread 0x00007f4a98a82000 Uncommon trap: reason=predicate action=maybe_recompile pc=0x00007f4a95f0bd10 method=java.io.ObjectInputStream.readArray(Z)Ljava/lang/Object; @ 397
+Event: 125605.180 Thread 0x00007f4a4408e000 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007f4a951b3e50 method=sun.misc.FloatingDecimal.readJavaFormatString(Ljava/lang/String;)Lsun/misc/FloatingDecimal; @ 824
+Event: 125605.180 Thread 0x00007f4a44112000 Uncommon trap: reason=unloaded action=reinterpret pc=0x00007f4a951b3e50 method=sun.misc.FloatingDecimal.readJavaFormatString(Ljava/lang/String;)Lsun/misc/FloatingDecimal; @ 824
+
+Internal exceptions (10 events):
+Event: 125605.183 Thread 0x00007f4a4408e000 Threw 0x00000000baf144f0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.183 Thread 0x00007f4a4408e000 Threw 0x00000000baf18658 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.184 Thread 0x00007f4a44112000 Threw 0x00000000bae7e218 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.184 Thread 0x00007f4a44112000 Threw 0x00000000bae82380 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.184 Thread 0x00007f4a4408d000 Threw 0x00000000baedd7c0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.184 Thread 0x00007f4a4408d000 Threw 0x00000000baee1928 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.185 Thread 0x00007f4a44112000 Threw 0x00000000bae829a0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.185 Thread 0x00007f4a44112000 Threw 0x00000000bae86b08 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.185 Thread 0x00007f4a4408d000 Threw 0x00000000baee1f48 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+Event: 125605.185 Thread 0x00007f4a4408d000 Threw 0x00000000baee60b0 at /HUDSON/workspace/7u-2-build-linux-amd64/jdk7u55/869/hotspot/src/share/vm/prims/jvm.cpp:1244
+
+Events (10 events):
+Event: 125601.758 Executing VM operation: BulkRevokeBias
+Event: 125601.760 Executing VM operation: BulkRevokeBias done
+Event: 125605.082 Executing VM operation: GenCollectForAllocation
+Event: 125605.091 Executing VM operation: GenCollectForAllocation done
+Event: 125605.180 Thread 0x00007f4a44112000 Uncommon trap: trap_request=0x000001b9 fr.pc=0x00007f4a951b3e50
+Event: 125605.180 Thread 0x00007f4a4408e000 Uncommon trap: trap_request=0x000001b9 fr.pc=0x00007f4a951b3e50
+Event: 125605.180 Thread 0x00007f4a4408e000 DEOPT PACKING pc=0x00007f4a951b3e50 sp=0x00007f4a65c68230
+Event: 125605.180 Thread 0x00007f4a44112000 DEOPT PACKING pc=0x00007f4a951b3e50 sp=0x00007f4a0712f0b0
+Event: 125605.180 Thread 0x00007f4a4408e000 DEOPT UNPACKING pc=0x00007f4a95039045 sp=0x00007f4a65c68198 mode 2
+Event: 125605.180 Thread 0x00007f4a44112000 DEOPT UNPACKING pc=0x00007f4a95039045 sp=0x00007f4a0712f018 mode 2
+
+
+Dynamic libraries:
+00400000-00401000 r-xp 00000000 ca:01 1314549                            /usr/local/java/jdk1.7.0_55/bin/java
+00600000-00601000 rw-p 00000000 ca:01 1314549                            /usr/local/java/jdk1.7.0_55/bin/java
+01baf000-01d46000 rw-p 00000000 00:00 0                                  [heap]
+bae00000-c0350000 rw-p 00000000 00:00 0 
+c0350000-cfac0000 rw-p 00000000 00:00 0 
+cfac0000-ed585000 rw-p 00000000 00:00 0 
+ed585000-fae00000 rw-p 00000000 00:00 0 
+fae00000-ff790000 rw-p 00000000 00:00 0 
+ff790000-100000000 rw-p 00000000 00:00 0 
+7f49f9666000-7f49fa05c000 r--s 00000000 fd:00 10750682                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/0/index/_ou_Lucene41_0.tim
+7f49fa05c000-7f49fa9f4000 r--s 00000000 fd:00 10750740                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/4/index/_nq_Lucene41_0.tim
+7f49fa9f4000-7f49fb33e000 r--s 00000000 fd:00 10751055                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/2/index/_mw_Lucene41_0.tim
+7f49fb33e000-7f49fbaf5000 r--s 00000000 fd:00 10750569                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_if_Lucene41_0.tim
+7f49fbaf5000-7f49fc287000 r--s 00000000 fd:00 10750736                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_hv_Lucene41_0.tim
+7f49fe07b000-7f49fe9da000 r--s 00000000 fd:00 10750482                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/3/index/_n6_Lucene41_0.tim
+7f49fe9da000-7f49ff15f000 r--s 00000000 fd:00 10750578                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_hv_Lucene41_0.tim
+7f49ff15f000-7f49ff8e3000 r--s 00000000 fd:00 10750511                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_hv_Lucene41_0.tim
+7f49ff8e3000-7f4a00061000 r--s 00000000 fd:00 10750025                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/4/index/_hl_Lucene41_0.tim
+7f4a00168000-7f4a00288000 r--s 00000000 fd:00 10750925                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_mc_Lucene41_0.tim
+7f4a00437000-7f4a0054e000 r--s 00000000 fd:00 10750938                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/1/index/_b_Lucene41_0.tim
+7f4a0054e000-7f4a00665000 r--s 00000000 fd:00 10750823                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/3/index/_b_Lucene41_0.tim
+7f4a00665000-7f4a0076f000 r--s 00000000 fd:00 10751281                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/2/index/_a_Lucene41_0.tim
+7f4a0076f000-7f4a0095c000 r--s 00000000 fd:00 10750853                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_li_Lucene41_0.tim
+7f4a00976000-7f4a00a7d000 r--s 00000000 fd:00 10751267                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/0/index/_a_Lucene41_0.tim
+7f4a00a7d000-7f4a00b89000 r--s 00000000 fd:00 10751253                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/4/index/_a_Lucene41_0.tim
+7f4a00b89000-7f4a00cee000 r--s 00000000 fd:00 10750685                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_oa_Lucene41_0.tim
+7f4a00cee000-7f4a00ea7000 r--s 00000000 fd:00 10750519                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_nq_Lucene41_0.tim
+7f4a00fad000-7f4a00fb0000 ---p 00000000 00:00 0 
+7f4a00fb0000-7f4a010ae000 rw-p 00000000 00:00 0 
+7f4a010ae000-7f4a011cf000 r--s 00000000 fd:00 10750150                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/3/index/_a_Lucene41_0.tim
+7f4a011cf000-7f4a012ea000 r--s 00000000 fd:00 10750078                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/2/index/_b_Lucene41_0.tim
+7f4a012ea000-7f4a013fe000 r--s 00000000 fd:00 10750622                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/1/index/_b_Lucene41_0.tim
+7f4a013fe000-7f4a014f7000 r--s 00000000 fd:00 10750473                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/0/index/_b_Lucene41_0.tim
+7f4a014f7000-7f4a015f7000 r--s 00000000 fd:00 10750419                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/4/index/_b_Lucene41_0.tim
+7f4a015f7000-7f4a015f8000 r--s 00000000 fd:00 10750165                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_mm_Lucene410_0.dvd
+7f4a015f8000-7f4a0177f000 r--s 00000000 fd:00 10749977                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_mm_Lucene41_0.tim
+7f4a0177f000-7f4a01f5c000 r--s 00000000 fd:00 10750232                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_ip_Lucene41_0.tim
+7f4a01fbf000-7f4a01fc2000 ---p 00000000 00:00 0 
+7f4a01fc2000-7f4a020c0000 rw-p 00000000 00:00 0 
+7f4a020c0000-7f4a02295000 r--s 00000000 fd:00 10750279                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_q9_Lucene41_0.tim
+7f4a02295000-7f4a024f4000 r--s 00000000 fd:00 10750223                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_mm_Lucene41_0.tim
+7f4a024f4000-7f4a024f5000 r--s 00000000 fd:00 10749923                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_mc_Lucene410_0.dvd
+7f4a024f5000-7f4a026da000 r--s 00000000 fd:00 10749897                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_mc_Lucene41_0.tim
+7f4a026da000-7f4a028c3000 r--s 00000000 fd:00 10749882                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/4/index/_l8_Lucene41_0.tim
+7f4a02988000-7f4a0298b000 ---p 00000000 00:00 0 
+7f4a0298b000-7f4a02a89000 rw-p 00000000 00:00 0 
+7f4a02a89000-7f4a02a8a000 r--s 00000000 fd:00 10750320                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_q9_Lucene410_0.dvd
+7f4a02a8a000-7f4a02c5a000 r--s 00000000 fd:00 10750008                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_q9_Lucene41_0.tim
+7f4a02c5a000-7f4a02e33000 r--s 00000000 fd:00 10749975                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_pz_Lucene41_0.tim
+7f4a02e33000-7f4a02e36000 ---p 00000000 00:00 0 
+7f4a02e36000-7f4a02f34000 rw-p 00000000 00:00 0 
+7f4a02f97000-7f4a030b5000 r--s 00000000 fd:00 10750304                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_li_Lucene41_0.tim
+7f4a030b5000-7f4a030b8000 ---p 00000000 00:00 0 
+7f4a030b8000-7f4a031b6000 rw-p 00000000 00:00 0 
+7f4a031b6000-7f4a033b9000 r--s 00000000 fd:00 10749721                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_u8_Lucene41_0.tim
+7f4a033b9000-7f4a03d42000 r--s 00000000 fd:00 10749916                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/1/index/_jt_Lucene41_0.tim
+7f4a03d42000-7f4a046c9000 r--s 00000000 fd:00 10749904                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_jt_Lucene41_0.tim
+7f4a046f2000-7f4a052ed000 r--s 00000000 fd:00 10749740                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/4/index/_p4_Lucene41_0.tim
+7f4a052f3000-7f4a052f6000 ---p 00000000 00:00 0 
+7f4a052f6000-7f4a053f4000 rw-p 00000000 00:00 0 
+7f4a053f4000-7f4a05677000 r--s 00000000 fd:00 10749615                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/4/index/_tm_Lucene41_0.tim
+7f4a05677000-7f4a05ffc000 r--s 00000000 fd:00 10749867                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_jt_Lucene41_0.tim
+7f4a0605d000-7f4a06165000 r--s 00000000 fd:00 10750168                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/1/index/_b_Lucene41_0.tim
+7f4a06165000-7f4a06270000 r--s 00000000 fd:00 10750149                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/3/index/_b_Lucene41_0.tim
+7f4a06270000-7f4a06374000 r--s 00000000 fd:00 10750196                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/2/index/_a_Lucene41_0.tim
+7f4a06374000-7f4a06479000 r--s 00000000 fd:00 10750171                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/4/index/_a_Lucene41_0.tim
+7f4a06479000-7f4a0647c000 ---p 00000000 00:00 0 
+7f4a0647c000-7f4a0657a000 rw-p 00000000 00:00 0 
+7f4a0657a000-7f4a06efb000 r--s 00000000 fd:00 10750136                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_jj_Lucene41_0.tim
+7f4a06f43000-7f4a07030000 r--s 00000000 fd:00 10750158                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/0/index/_b_Lucene41_0.tim
+7f4a07030000-7f4a07033000 ---p 00000000 00:00 0 
+7f4a07033000-7f4a07131000 rw-p 00000000 00:00 0 
+7f4a07131000-7f4a07350000 r--s 00000000 fd:00 10749622                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/1/index/_pe_Lucene41_0.tim
+7f4a07350000-7f4a075d7000 r--s 00000000 fd:00 10749711                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_oa_Lucene41_0.tim
+7f4a07669000-7f4a0766c000 ---p 00000000 00:00 0 
+7f4a0766c000-7f4a0776a000 rw-p 00000000 00:00 0 
+7f4a0776a000-7f4a0776d000 ---p 00000000 00:00 0 
+7f4a0776d000-7f4a0786b000 rw-p 00000000 00:00 0 
+7f4a0786b000-7f4a07c37000 r--s 00000000 fd:00 10749626                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_tb_Lucene41_0.tim
+7f4a07c37000-7f4a07e91000 r--s 00000000 fd:00 10749675                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_t1_Lucene41_0.tim
+7f4a07e91000-7f4a08000000 r--s 00000000 fd:00 10749714                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_q8_Lucene41_0.tim
+7f4a08000000-7f4a08291000 rw-p 00000000 00:00 0 
+7f4a08291000-7f4a0c000000 ---p 00000000 00:00 0 
+7f4a0c05d000-7f4a0c25f000 r--s 00000000 fd:00 10749646                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_oa_Lucene41_0.tim
+7f4a0c25f000-7f4a0c262000 ---p 00000000 00:00 0 
+7f4a0c262000-7f4a0c360000 rw-p 00000000 00:00 0 
+7f4a0c360000-7f4a0c363000 ---p 00000000 00:00 0 
+7f4a0c363000-7f4a0c461000 rw-p 00000000 00:00 0 
+7f4a0c461000-7f4a0c464000 ---p 00000000 00:00 0 
+7f4a0c464000-7f4a0c562000 rw-p 00000000 00:00 0 
+7f4a0c562000-7f4a0c565000 ---p 00000000 00:00 0 
+7f4a0c565000-7f4a0c663000 rw-p 00000000 00:00 0 
+7f4a0c663000-7f4a0c666000 ---p 00000000 00:00 0 
+7f4a0c666000-7f4a0c764000 rw-p 00000000 00:00 0 
+7f4a0c764000-7f4a0c767000 ---p 00000000 00:00 0 
+7f4a0c767000-7f4a0c865000 rw-p 00000000 00:00 0 
+7f4a0c865000-7f4a0c868000 ---p 00000000 00:00 0 
+7f4a0c868000-7f4a0c966000 rw-p 00000000 00:00 0 
+7f4a0c966000-7f4a0cb88000 r--s 00000000 fd:00 10749419                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_sh_Lucene41_0.tim
+7f4a0cb88000-7f4a0ce09000 r--s 00000000 fd:00 10749453                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_ok_Lucene41_0.tim
+7f4a0ce09000-7f4a0d7bd000 r--s 00000000 fd:00 10749407                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_jt_Lucene41_0.tim
+7f4a0d7bd000-7f4a0d7be000 r--s 00000000 fd:00 10749389                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_tm_Lucene410_0.dvd
+7f4a0d7be000-7f4a0d9ec000 r--s 00000000 fd:00 10749392                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_tm_Lucene41_0.tim
+7f4a0d9ec000-7f4a0dc6d000 r--s 00000000 fd:00 10749376                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_o0_Lucene41_0.tim
+7f4a0dc6d000-7f4a0e5e8000 r--s 00000000 fd:00 10749355                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_j9_Lucene41_0.tim
+7f4a0e5e8000-7f4a0e5eb000 ---p 00000000 00:00 0 
+7f4a0e5eb000-7f4a0e6e9000 rw-p 00000000 00:00 0 
+7f4a0e6e9000-7f4a0e6ea000 r--s 00000000 fd:00 10749303                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/2/index/_tw_Lucene410_0.dvd
+7f4a0e6ea000-7f4a0e892000 r--s 00000000 fd:00 10749299                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/2/index/_tw_Lucene41_0.tim
+7f4a0e892000-7f4a0e896000 r--s 00000000 fd:00 10749313                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/2/index/_p4_Lucene410_0.dvd
+7f4a0e896000-7f4a0f44b000 r--s 00000000 fd:00 10749298                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/2/index/_p4_Lucene41_0.tim
+7f4a0f44b000-7f4a10000000 r--s 00000000 fd:00 10749229                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/1/index/_ou_Lucene41_0.tim
+7f4a10000000-7f4a1026b000 rw-p 00000000 00:00 0 
+7f4a1026b000-7f4a14000000 ---p 00000000 00:00 0 
+7f4a14000000-7f4a14257000 rw-p 00000000 00:00 0 
+7f4a14257000-7f4a18000000 ---p 00000000 00:00 0 
+7f4a18000000-7f4a180cb000 rw-p 00000000 00:00 0 
+7f4a180cb000-7f4a1c000000 ---p 00000000 00:00 0 
+7f4a1c000000-7f4a1c2d3000 rw-p 00000000 00:00 0 
+7f4a1c2d3000-7f4a20000000 ---p 00000000 00:00 0 
+7f4a20000000-7f4a2021e000 rw-p 00000000 00:00 0 
+7f4a2021e000-7f4a24000000 ---p 00000000 00:00 0 
+7f4a24000000-7f4a2410b000 rw-p 00000000 00:00 0 
+7f4a2410b000-7f4a28000000 ---p 00000000 00:00 0 
+7f4a28000000-7f4a28163000 rw-p 00000000 00:00 0 
+7f4a28163000-7f4a2c000000 ---p 00000000 00:00 0 
+7f4a2c000000-7f4a2c203000 rw-p 00000000 00:00 0 
+7f4a2c203000-7f4a30000000 ---p 00000000 00:00 0 
+7f4a30000000-7f4a30146000 rw-p 00000000 00:00 0 
+7f4a30146000-7f4a34000000 ---p 00000000 00:00 0 
+7f4a34000000-7f4a34355000 rw-p 00000000 00:00 0 
+7f4a34355000-7f4a38000000 ---p 00000000 00:00 0 
+7f4a38000000-7f4a38133000 rw-p 00000000 00:00 0 
+7f4a38133000-7f4a3c000000 ---p 00000000 00:00 0 
+7f4a3c000000-7f4a3c1c1000 rw-p 00000000 00:00 0 
+7f4a3c1c1000-7f4a40000000 ---p 00000000 00:00 0 
+7f4a40000000-7f4a40137000 rw-p 00000000 00:00 0 
+7f4a40137000-7f4a44000000 ---p 00000000 00:00 0 
+7f4a44000000-7f4a44198000 rw-p 00000000 00:00 0 
+7f4a44198000-7f4a48000000 ---p 00000000 00:00 0 
+7f4a48000000-7f4a4812e000 rw-p 00000000 00:00 0 
+7f4a4812e000-7f4a4c000000 ---p 00000000 00:00 0 
+7f4a4c04a000-7f4a4c04d000 ---p 00000000 00:00 0 
+7f4a4c04d000-7f4a4c14b000 rw-p 00000000 00:00 0 
+7f4a4c14b000-7f4a4c2ea000 r--s 00000000 fd:00 10749264                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/1/index/_tb_Lucene41_0.tim
+7f4a4c2ea000-7f4a4c2ed000 ---p 00000000 00:00 0 
+7f4a4c2ed000-7f4a4c3eb000 rw-p 00000000 00:00 0 
+7f4a4c3eb000-7f4a4c3ef000 r--s 00000000 fd:00 10749190                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/0/index/_po_Lucene410_0.dvd
+7f4a4c3ef000-7f4a4cfff000 r--s 00000000 fd:00 10749170                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/0/index/_po_Lucene41_0.tim
+7f4a4cfff000-7f4a50000000 rw-p 00000000 00:00 0 
+7f4a50000000-7f4a50021000 rw-p 00000000 00:00 0 
+7f4a50021000-7f4a54000000 ---p 00000000 00:00 0 
+7f4a54000000-7f4a5412a000 rw-p 00000000 00:00 0 
+7f4a5412a000-7f4a58000000 ---p 00000000 00:00 0 
+7f4a58000000-7f4a5a057000 rw-p 00000000 00:00 0 
+7f4a5a057000-7f4a5c000000 ---p 00000000 00:00 0 
+7f4a5c000000-7f4a5e701000 rw-p 00000000 00:00 0 
+7f4a5e701000-7f4a60000000 ---p 00000000 00:00 0 
+7f4a60000000-7f4a60024000 rw-p 00000000 00:00 0 
+7f4a60024000-7f4a64000000 ---p 00000000 00:00 0 
+7f4a6404e000-7f4a64051000 ---p 00000000 00:00 0 
+7f4a64051000-7f4a6414f000 rw-p 00000000 00:00 0 
+7f4a6414f000-7f4a64152000 ---p 00000000 00:00 0 
+7f4a64152000-7f4a64250000 rw-p 00000000 00:00 0 
+7f4a64250000-7f4a64253000 ---p 00000000 00:00 0 
+7f4a64253000-7f4a64351000 rw-p 00000000 00:00 0 
+7f4a64351000-7f4a64354000 ---p 00000000 00:00 0 
+7f4a64354000-7f4a64452000 rw-p 00000000 00:00 0 
+7f4a64452000-7f4a64455000 ---p 00000000 00:00 0 
+7f4a64455000-7f4a64553000 rw-p 00000000 00:00 0 
+7f4a64553000-7f4a64556000 ---p 00000000 00:00 0 
+7f4a64556000-7f4a64654000 rw-p 00000000 00:00 0 
+7f4a64654000-7f4a64657000 ---p 00000000 00:00 0 
+7f4a64657000-7f4a64755000 rw-p 00000000 00:00 0 
+7f4a64755000-7f4a64758000 ---p 00000000 00:00 0 
+7f4a64758000-7f4a64856000 rw-p 00000000 00:00 0 
+7f4a64856000-7f4a64859000 ---p 00000000 00:00 0 
+7f4a64859000-7f4a64957000 rw-p 00000000 00:00 0 
+7f4a64957000-7f4a6495a000 ---p 00000000 00:00 0 
+7f4a6495a000-7f4a64a58000 rw-p 00000000 00:00 0 
+7f4a64a58000-7f4a64a5b000 ---p 00000000 00:00 0 
+7f4a64a5b000-7f4a64b59000 rw-p 00000000 00:00 0 
+7f4a64b59000-7f4a64b5c000 ---p 00000000 00:00 0 
+7f4a64b5c000-7f4a64c5a000 rw-p 00000000 00:00 0 
+7f4a64c5a000-7f4a64c5d000 ---p 00000000 00:00 0 
+7f4a64c5d000-7f4a64d5b000 rw-p 00000000 00:00 0 
+7f4a64d5b000-7f4a64d5e000 ---p 00000000 00:00 0 
+7f4a64d5e000-7f4a64e5c000 rw-p 00000000 00:00 0 
+7f4a64e5c000-7f4a64e5f000 ---p 00000000 00:00 0 
+7f4a64e5f000-7f4a64f5d000 rw-p 00000000 00:00 0 
+7f4a64f5d000-7f4a64f60000 ---p 00000000 00:00 0 
+7f4a64f60000-7f4a6505e000 rw-p 00000000 00:00 0 
+7f4a6505e000-7f4a65061000 ---p 00000000 00:00 0 
+7f4a65061000-7f4a6515f000 rw-p 00000000 00:00 0 
+7f4a6515f000-7f4a65162000 ---p 00000000 00:00 0 
+7f4a65162000-7f4a65260000 rw-p 00000000 00:00 0 
+7f4a65260000-7f4a65263000 ---p 00000000 00:00 0 
+7f4a65263000-7f4a65361000 rw-p 00000000 00:00 0 
+7f4a65361000-7f4a65364000 ---p 00000000 00:00 0 
+7f4a65364000-7f4a65462000 rw-p 00000000 00:00 0 
+7f4a65462000-7f4a65465000 ---p 00000000 00:00 0 
+7f4a65465000-7f4a65563000 rw-p 00000000 00:00 0 
+7f4a65563000-7f4a65566000 ---p 00000000 00:00 0 
+7f4a65566000-7f4a65664000 rw-p 00000000 00:00 0 
+7f4a65664000-7f4a65667000 ---p 00000000 00:00 0 
+7f4a65667000-7f4a65765000 rw-p 00000000 00:00 0 
+7f4a65765000-7f4a65768000 ---p 00000000 00:00 0 
+7f4a65768000-7f4a65866000 rw-p 00000000 00:00 0 
+7f4a65866000-7f4a65869000 ---p 00000000 00:00 0 
+7f4a65869000-7f4a65967000 rw-p 00000000 00:00 0 
+7f4a65967000-7f4a6596a000 ---p 00000000 00:00 0 
+7f4a6596a000-7f4a65a68000 rw-p 00000000 00:00 0 
+7f4a65a68000-7f4a65a6b000 ---p 00000000 00:00 0 
+7f4a65a6b000-7f4a65b69000 rw-p 00000000 00:00 0 
+7f4a65b69000-7f4a65b6c000 ---p 00000000 00:00 0 
+7f4a65b6c000-7f4a65c6a000 rw-p 00000000 00:00 0 
+7f4a65c6a000-7f4a65c6d000 ---p 00000000 00:00 0 
+7f4a65c6d000-7f4a65d6b000 rw-p 00000000 00:00 0 
+7f4a65d6b000-7f4a65d6e000 ---p 00000000 00:00 0 
+7f4a65d6e000-7f4a65e6c000 rw-p 00000000 00:00 0 
+7f4a65e6c000-7f4a65e6f000 ---p 00000000 00:00 0 
+7f4a65e6f000-7f4a65f6d000 rw-p 00000000 00:00 0 
+7f4a65f6d000-7f4a65f70000 ---p 00000000 00:00 0 
+7f4a65f70000-7f4a6606e000 rw-p 00000000 00:00 0 
+7f4a6606e000-7f4a66071000 ---p 00000000 00:00 0 
+7f4a66071000-7f4a6616f000 rw-p 00000000 00:00 0 
+7f4a6616f000-7f4a6c000000 r--p 00000000 ca:01 918089                     /usr/lib/locale/locale-archive
+7f4a6c000000-7f4a6c021000 rw-p 00000000 00:00 0 
+7f4a6c021000-7f4a70000000 ---p 00000000 00:00 0 
+7f4a70000000-7f4a70021000 rw-p 00000000 00:00 0 
+7f4a70021000-7f4a74000000 ---p 00000000 00:00 0 
+7f4a74000000-7f4a7440c000 rw-p 00000000 00:00 0 
+7f4a7440c000-7f4a78000000 ---p 00000000 00:00 0 
+7f4a78000000-7f4a78021000 rw-p 00000000 00:00 0 
+7f4a78021000-7f4a7c000000 ---p 00000000 00:00 0 
+7f4a7c000000-7f4a7c096000 rw-p 00000000 00:00 0 
+7f4a7c096000-7f4a80000000 ---p 00000000 00:00 0 
+7f4a80000000-7f4a800c9000 rw-p 00000000 00:00 0 
+7f4a800c9000-7f4a84000000 ---p 00000000 00:00 0 
+7f4a8400f000-7f4a84014000 r--s 00000000 fd:00 10749611                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/0/index/_ou_Lucene410_0.dvd
+7f4a84014000-7f4a84018000 r--s 00000000 fd:00 10749760                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/2/index/_mw_Lucene410_0.dvd
+7f4a84018000-7f4a8401c000 r--s 00000000 fd:00 10750786                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_hv_Lucene410_0.dvd
+7f4a8401c000-7f4a84020000 r--s 00000000 fd:00 10749847                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_if_Lucene410_0.dvd
+7f4a84024000-7f4a84029000 r--s 00000000 fd:00 10750065                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/4/index/_nq_Lucene410_0.dvd
+7f4a8402a000-7f4a8402b000 r--s 00000000 fd:00 10750932                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_mc_Lucene410_0.dvd
+7f4a8402b000-7f4a8402c000 rw-p 00000000 00:00 0 
+7f4a8402c000-7f4a8402d000 r--s 00000000 fd:00 10751018                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/1/index/_b_Lucene410_0.dvd
+7f4a8402d000-7f4a8402e000 r--s 00000000 fd:00 10750945                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/3/index/_b_Lucene410_0.dvd
+7f4a8402e000-7f4a8402f000 r--s 00000000 fd:00 10751304                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/2/index/_a_Lucene410_0.dvd
+7f4a8402f000-7f4a84030000 r--s 00000000 fd:00 10751298                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/0/index/_a_Lucene410_0.dvd
+7f4a84030000-7f4a84034000 r--s 00000000 fd:00 10749528                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_hv_Lucene410_0.dvd
+7f4a84034000-7f4a84038000 r--s 00000000 fd:00 10749591                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_hv_Lucene410_0.dvd
+7f4a84038000-7f4a8403c000 r--s 00000000 fd:00 10750509                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/4/index/_hl_Lucene410_0.dvd
+7f4a8403c000-7f4a8403d000 r--s 00000000 fd:00 10750714                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_oa_Lucene410_0.dvd
+7f4a8403d000-7f4a84041000 r--s 00000000 fd:00 10750486                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/3/index/_n6_Lucene410_0.dvd
+7f4a84041000-7f4a84042000 r--s 00000000 fd:00 10750526                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/3/index/_nq_Lucene410_0.dvd
+7f4a84042000-7f4a84043000 r--s 00000000 fd:00 10751286                   /path/to/index/nodes/0/indices/index_20151211-04:37:55/4/index/_a_Lucene410_0.dvd
+7f4a84043000-7f4a84047000 r--s 00000000 fd:00 10750273                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_ip_Lucene410_0.dvd
+7f4a84047000-7f4a84048000 r--s 00000000 fd:00 10751037                   /path/to/index/nodes/0/indices/index_20151211-03:30:02/1/index/_li_Lucene410_0.dvd
+7f4a84048000-7f4a8404b000 ---p 00000000 00:00 0 
+7f4a8404b000-7f4a84149000 rw-p 00000000 00:00 0 
+7f4a84149000-7f4a8414c000 ---p 00000000 00:00 0 
+7f4a8414c000-7f4a8424a000 rw-p 00000000 00:00 0 
+7f4a8424a000-7f4a8424d000 ---p 00000000 00:00 0 
+7f4a8424d000-7f4a8434b000 rw-p 00000000 00:00 0 
+7f4a8434b000-7f4a8434e000 ---p 00000000 00:00 0 
+7f4a8434e000-7f4a8444c000 rw-p 00000000 00:00 0 
+7f4a8444c000-7f4a8444f000 ---p 00000000 00:00 0 
+7f4a8444f000-7f4a8454d000 rw-p 00000000 00:00 0 
+7f4a8454d000-7f4a84550000 ---p 00000000 00:00 0 
+7f4a84550000-7f4a8464e000 rw-p 00000000 00:00 0 
+7f4a8464e000-7f4a84651000 ---p 00000000 00:00 0 
+7f4a84651000-7f4a8474f000 rw-p 00000000 00:00 0 
+7f4a8474f000-7f4a84752000 ---p 00000000 00:00 0 
+7f4a84752000-7f4a84850000 rw-p 00000000 00:00 0 
+7f4a84850000-7f4a84853000 ---p 00000000 00:00 0 
+7f4a84853000-7f4a84951000 rw-p 00000000 00:00 0 
+7f4a84951000-7f4a84954000 ---p 00000000 00:00 0 
+7f4a84954000-7f4a84a52000 rw-p 00000000 00:00 0 
+7f4a84a52000-7f4a84a55000 ---p 00000000 00:00 0 
+7f4a84a55000-7f4a84b53000 rw-p 00000000 00:00 0 
+7f4a84b53000-7f4a84b56000 ---p 00000000 00:00 0 
+7f4a84b56000-7f4a84c54000 rw-p 00000000 00:00 0 
+7f4a84c54000-7f4a84c57000 ---p 00000000 00:00 0 
+7f4a84c57000-7f4a84d55000 rw-p 00000000 00:00 0 
+7f4a84d55000-7f4a84d58000 ---p 00000000 00:00 0 
+7f4a84d58000-7f4a84e56000 rw-p 00000000 00:00 0 
+7f4a84e56000-7f4a84e59000 ---p 00000000 00:00 0 
+7f4a84e59000-7f4a84f57000 rw-p 00000000 00:00 0 
+7f4a84f57000-7f4a84f5a000 ---p 00000000 00:00 0 
+7f4a84f5a000-7f4a85058000 rw-p 00000000 00:00 0 
+7f4a85058000-7f4a8505b000 ---p 00000000 00:00 0 
+7f4a8505b000-7f4a85159000 rw-p 00000000 00:00 0 
+7f4a85159000-7f4a8515c000 ---p 00000000 00:00 0 
+7f4a8515c000-7f4a8525a000 rw-p 00000000 00:00 0 
+7f4a8525a000-7f4a85289000 r-xp 00000000 fd:00 10749100                   /data0/java/elasticsearch-1.6.2/lib/sigar/libsigar-amd64-linux.so
+7f4a85289000-7f4a85388000 ---p 0002f000 fd:00 10749100                   /data0/java/elasticsearch-1.6.2/lib/sigar/libsigar-amd64-linux.so
+7f4a85388000-7f4a8538e000 rw-p 0002e000 fd:00 10749100                   /data0/java/elasticsearch-1.6.2/lib/sigar/libsigar-amd64-linux.so
+7f4a8538e000-7f4a85391000 rw-p 00000000 00:00 0 
+7f4a85391000-7f4a85394000 ---p 00000000 00:00 0 
+7f4a85394000-7f4a85492000 rw-p 00000000 00:00 0 
+7f4a85492000-7f4a8549a000 r-xp 00000000 ca:01 2229052                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libmanagement.so
+7f4a8549a000-7f4a85699000 ---p 00008000 ca:01 2229052                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libmanagement.so
+7f4a85699000-7f4a8569a000 rw-p 00007000 ca:01 2229052                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libmanagement.so
+7f4a8569a000-7f4a856aa000 r-xp 00000000 ca:01 2229088                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnio.so
+7f4a856aa000-7f4a858aa000 ---p 00010000 ca:01 2229088                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnio.so
+7f4a858aa000-7f4a858ab000 rw-p 00010000 ca:01 2229088                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnio.so
+7f4a858ab000-7f4a858c1000 r-xp 00000000 ca:01 2229045                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnet.so
+7f4a858c1000-7f4a85ac1000 ---p 00016000 ca:01 2229045                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnet.so
+7f4a85ac1000-7f4a85ac2000 rw-p 00016000 ca:01 2229045                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libnet.so
+7f4a85ac2000-7f4a85aea000 rw-p 00000000 00:00 0 
+7f4a85aea000-7f4a85bfc000 r--s 00c52000 fd:00 10749125                   /data0/java/elasticsearch-1.6.2/lib/elasticsearch-1.6.2.jar
+7f4a85bfc000-7f4a85bfd000 ---p 00000000 00:00 0 
+7f4a85bfd000-7f4a85cfd000 rw-p 00000000 00:00 0 
+7f4a85cfd000-7f4a85d00000 ---p 00000000 00:00 0 
+7f4a85d00000-7f4a85dfe000 rw-p 00000000 00:00 0 
+7f4a85dfe000-7f4a85e01000 ---p 00000000 00:00 0 
+7f4a85e01000-7f4a85eff000 rw-p 00000000 00:00 0 
+7f4a85eff000-7f4a85f02000 ---p 00000000 00:00 0 
+7f4a85f02000-7f4a88000000 rw-p 00000000 00:00 0 
+7f4a88000000-7f4a88095000 rw-p 00000000 00:00 0 
+7f4a88095000-7f4a8c000000 ---p 00000000 00:00 0 
+7f4a8c000000-7f4a8c099000 rw-p 00000000 00:00 0 
+7f4a8c099000-7f4a90000000 ---p 00000000 00:00 0 
+7f4a90000000-7f4a900a1000 rw-p 00000000 00:00 0 
+7f4a900a1000-7f4a94000000 ---p 00000000 00:00 0 
+7f4a94000000-7f4a94001000 r--s 00000000 fd:00 10750298                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/3/index/_a_Lucene410_0.dvd
+7f4a94001000-7f4a94002000 r--s 00000000 fd:00 10750212                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/2/index/_b_Lucene410_0.dvd
+7f4a94002000-7f4a94003000 r--s 00000000 fd:00 10750373                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/1/index/_b_Lucene410_0.dvd
+7f4a94003000-7f4a94004000 r--s 00000000 fd:00 10750422                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/0/index/_b_Lucene410_0.dvd
+7f4a94004000-7f4a94005000 r--s 00000000 fd:00 10750361                   /path/to/index/nodes/0/indices/index_20151210-04:37:53/4/index/_b_Lucene410_0.dvd
+7f4a94005000-7f4a94006000 r--s 00000000 fd:00 10750325                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_q9_Lucene410_0.dvd
+7f4a94006000-7f4a94007000 r--s 00000000 fd:00 10750330                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/0/index/_mm_Lucene410_0.dvd
+7f4a94007000-7f4a94008000 r--s 00000000 fd:00 10749786                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/2/index/_li_Lucene410_0.dvd
+7f4a94008000-7f4a94009000 r--s 00000000 fd:00 10749895                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/4/index/_l8_Lucene410_0.dvd
+7f4a94009000-7f4a9400a000 r--s 00000000 fd:00 10749907                   /path/to/index/nodes/0/indices/index_20151210-03:30:01/1/index/_pz_Lucene410_0.dvd
+7f4a9400a000-7f4a9400d000 r--s 00000000 fd:00 10749856                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_jj_Lucene410_0.dvd
+7f4a9400d000-7f4a94010000 r--s 00000000 fd:00 10750140                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_jt_Lucene410_0.dvd
+7f4a94010000-7f4a94012000 r--s 00000000 fd:00 10749728                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_u8_Lucene410_0.dvd
+7f4a94012000-7f4a94013000 r--s 00000000 fd:00 10749650                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/4/index/_tm_Lucene410_0.dvd
+7f4a94013000-7f4a94014000 r--s 00000000 fd:00 10750016                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/1/index/_b_Lucene410_0.dvd
+7f4a94014000-7f4a94015000 r--s 00000000 fd:00 10749989                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/3/index/_b_Lucene410_0.dvd
+7f4a94015000-7f4a94016000 r--s 00000000 fd:00 10750042                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/2/index/_a_Lucene410_0.dvd
+7f4a94016000-7f4a9401a000 r--s 00000000 fd:00 10749582                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/4/index/_p4_Lucene410_0.dvd
+7f4a9401a000-7f4a9401d000 r--s 00000000 fd:00 10749609                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/1/index/_jt_Lucene410_0.dvd
+7f4a9401d000-7f4a9401e000 r--s 00000000 fd:00 10749776                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/4/index/_a_Lucene410_0.dvd
+7f4a9401e000-7f4a9401f000 r--s 00000000 fd:00 10750080                   /path/to/index/nodes/0/indices/index_20151209-19:58:37/0/index/_b_Lucene410_0.dvd
+7f4a9401f000-7f4a94022000 r--s 00000000 fd:00 10749546                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_jt_Lucene410_0.dvd
+7f4a94022000-7f4a94024000 r--s 00000000 fd:00 10749636                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_tb_Lucene410_0.dvd
+7f4a94024000-7f4a94025000 r--s 00000000 fd:00 10749574                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/1/index/_pe_Lucene410_0.dvd
+7f4a94025000-7f4a94026000 r--s 00000000 fd:00 10749686                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_oa_Lucene410_0.dvd
+7f4a94026000-7f4a94027000 r--s 00000000 fd:00 10749691                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/2/index/_t1_Lucene410_0.dvd
+7f4a94027000-7f4a94028000 r--s 00000000 fd:00 10749684                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/0/index/_q8_Lucene410_0.dvd
+7f4a94028000-7f4a94029000 r--s 00000000 fd:00 10749583                   /path/to/index/nodes/0/indices/index_20151209-18:41:34/3/index/_oa_Lucene410_0.dvd
+7f4a94029000-7f4a9402a000 r--s 00000000 fd:00 10749428                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_sh_Lucene410_0.dvd
+7f4a9402a000-7f4a9402b000 r--s 00000000 fd:00 10749462                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_ok_Lucene410_0.dvd
+7f4a9402b000-7f4a9402f000 r--s 00000000 fd:00 10749404                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/4/index/_jt_Lucene410_0.dvd
+7f4a9402f000-7f4a94030000 r--s 00000000 fd:00 10749368                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_o0_Lucene410_0.dvd
+7f4a94030000-7f4a94033000 r--s 00000000 fd:00 10749361                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/3/index/_j9_Lucene410_0.dvd
+7f4a94033000-7f4a94034000 r--s 00000000 fd:00 10749266                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/1/index/_tb_Lucene410_0.dvd
+7f4a94034000-7f4a94038000 r--s 00000000 fd:00 10749274                   /path/to/index/nodes/0/indices/index_20151209-16:10:05/1/index/_ou_Lucene410_0.dvd
+7f4a94038000-7f4a94041000 r--s 00251000 ca:01 1186796                    /usr/local/java/jdk1.7.0_55/jre/lib/resources.jar
+7f4a94041000-7f4a94043000 r--s 0000e000 fd:00 10748860                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/elasticsearch-analysis-ik-1.4.0.jar
+7f4a94043000-7f4a94050000 r--s 000a5000 fd:00 10748861                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/httpclient-4.5.jar
+7f4a94050000-7f4a94052000 r--s 0000e000 fd:00 10748858                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/commons-logging-1.2.jar
+7f4a94052000-7f4a94055000 r--s 00024000 fd:00 10748856                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/httpclient-cache-4.5.jar
+7f4a94055000-7f4a94057000 r--s 00003000 fd:00 10748857                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/httpclient-win-4.5.jar
+7f4a94057000-7f4a9405e000 r--s 00048000 fd:00 10748862                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/httpcore-4.4.1.jar
+7f4a9405e000-7f4a94062000 r--s 0008a000 ca:01 1186778                    /usr/local/java/jdk1.7.0_55/jre/lib/jsse.jar
+7f4a94062000-7f4a94069000 r--s 00062000 fd:00 10749108                   /data0/java/elasticsearch-1.6.2/lib/sigar/sigar-1.6.4.jar
+7f4a94069000-7f4a94071000 r--s 00066000 fd:00 10749090                   /data0/java/elasticsearch-1.6.2/lib/apache-log4j-extras-1.2.17.jar
+7f4a94071000-7f4a94073000 r--s 00008000 fd:00 10749116                   /data0/java/elasticsearch-1.6.2/lib/asm-commons-4.1.jar
+7f4a94073000-7f4a9407c000 r--s 0006f000 fd:00 10749122                   /data0/java/elasticsearch-1.6.2/lib/log4j-1.2.17.jar
+7f4a9407c000-7f4a940eb000 r--s 0063e000 fd:00 10749115                   /data0/java/elasticsearch-1.6.2/lib/groovy-all-2.4.4.jar
+7f4a940eb000-7f4a940ee000 r--s 00018000 fd:00 10749123                   /data0/java/elasticsearch-1.6.2/lib/lucene-grouping-4.10.4.jar
+7f4a940ee000-7f4a940f2000 r--s 000dc000 fd:00 10749117                   /data0/java/elasticsearch-1.6.2/lib/jna-4.1.0.jar
+7f4a940f2000-7f4a940f5000 ---p 00000000 00:00 0 
+7f4a940f5000-7f4a941f3000 rw-p 00000000 00:00 0 
+7f4a941f3000-7f4a941f6000 ---p 00000000 00:00 0 
+7f4a941f6000-7f4a942f4000 rw-p 00000000 00:00 0 
+7f4a942f4000-7f4a942f7000 ---p 00000000 00:00 0 
+7f4a942f7000-7f4a943f5000 rw-p 00000000 00:00 0 
+7f4a943f5000-7f4a943f8000 ---p 00000000 00:00 0 
+7f4a943f8000-7f4a944f6000 rw-p 00000000 00:00 0 
+7f4a944f6000-7f4a944f7000 ---p 00000000 00:00 0 
+7f4a944f7000-7f4a94642000 rw-p 00000000 00:00 0 
+7f4a94642000-7f4a94800000 r--s 039d0000 ca:01 1186795                    /usr/local/java/jdk1.7.0_55/jre/lib/rt.jar
+7f4a94800000-7f4a95000000 rw-p 00000000 00:00 0 
+7f4a95000000-7f4a95f20000 rwxp 00000000 00:00 0 
+7f4a95f20000-7f4a9915a000 rw-p 00000000 00:00 0 
+7f4a9915a000-7f4a9c000000 ---p 00000000 00:00 0 
+7f4a9c000000-7f4a9c003000 r--s 00026000 fd:00 10749088                   /data0/java/elasticsearch-1.6.2/lib/antlr-runtime-3.5.jar
+7f4a9c003000-7f4a9c006000 r--s 00029000 fd:00 10749120                   /data0/java/elasticsearch-1.6.2/lib/lucene-suggest-4.10.4.jar
+7f4a9c006000-7f4a9c00c000 r--s 0002f000 fd:00 10749118                   /data0/java/elasticsearch-1.6.2/lib/lucene-queries-4.10.4.jar
+7f4a9c00c000-7f4a9c00e000 r--s 00017000 fd:00 10749124                   /data0/java/elasticsearch-1.6.2/lib/spatial4j-0.4.1.jar
+7f4a9c00e000-7f4a9c010000 r--s 00016000 fd:00 10749114                   /data0/java/elasticsearch-1.6.2/lib/lucene-misc-4.10.4.jar
+7f4a9c010000-7f4a9c011000 r--s 0000b000 fd:00 10749092                   /data0/java/elasticsearch-1.6.2/lib/asm-4.1.jar
+7f4a9c011000-7f4a9c013000 r--s 0000e000 fd:00 10749121                   /data0/java/elasticsearch-1.6.2/lib/lucene-join-4.10.4.jar
+7f4a9c013000-7f4a9c03d000 r--s 00248000 fd:00 10749094                   /data0/java/elasticsearch-1.6.2/lib/lucene-core-4.10.4.jar
+7f4a9c03d000-7f4a9c03f000 r--s 00011000 fd:00 10749093                   /data0/java/elasticsearch-1.6.2/lib/lucene-expressions-4.10.4.jar
+7f4a9c03f000-7f4a9c050000 r--s 0018f000 fd:00 10749112                   /data0/java/elasticsearch-1.6.2/lib/lucene-analyzers-common-4.10.4.jar
+7f4a9c050000-7f4a9c053000 r--s 0001f000 fd:00 10749086                   /data0/java/elasticsearch-1.6.2/lib/lucene-highlighter-4.10.4.jar
+7f4a9c053000-7f4a9c056000 r--s 0001c000 fd:00 10749089                   /data0/java/elasticsearch-1.6.2/lib/lucene-spatial-4.10.4.jar
+7f4a9c056000-7f4a9c067000 r--s 000b2000 fd:00 10749087                   /data0/java/elasticsearch-1.6.2/lib/jts-1.13.jar
+7f4a9c067000-7f4a9c070000 r--s 00057000 fd:00 10749113                   /data0/java/elasticsearch-1.6.2/lib/lucene-queryparser-4.10.4.jar
+7f4a9c070000-7f4a9c25a000 rw-p 00000000 00:00 0 
+7f4a9c25a000-7f4a9c25b000 ---p 00000000 00:00 0 
+7f4a9c25b000-7f4a9d494000 rw-p 00000000 00:00 0 
+7f4a9d494000-7f4a9d500000 rw-p 00000000 00:00 0 
+7f4a9d500000-7f4a9d92f000 rw-p 00000000 00:00 0 
+7f4a9d92f000-7f4a9d9aa000 rw-p 00000000 00:00 0 
+7f4a9d9aa000-7f4a9da98000 rw-p 00000000 00:00 0 
+7f4a9da98000-7f4a9db04000 rw-p 00000000 00:00 0 
+7f4a9db04000-7f4a9db29000 rw-p 00000000 00:00 0 
+7f4a9db29000-7f4a9db2d000 rw-p 00000000 00:00 0 
+7f4a9db2d000-7f4a9db2e000 rw-p 00000000 00:00 0 
+7f4a9db2e000-7f4a9db2f000 ---p 00000000 00:00 0 
+7f4a9db2f000-7f4a9dc2f000 rw-p 00000000 00:00 0 
+7f4a9dc2f000-7f4a9dc30000 ---p 00000000 00:00 0 
+7f4a9dc30000-7f4a9dd30000 rw-p 00000000 00:00 0 
+7f4a9dd30000-7f4a9dd31000 ---p 00000000 00:00 0 
+7f4a9dd31000-7f4a9de31000 rw-p 00000000 00:00 0 
+7f4a9de31000-7f4a9de32000 ---p 00000000 00:00 0 
+7f4a9de32000-7f4a9df32000 rw-p 00000000 00:00 0 
+7f4a9df32000-7f4a9df4c000 r-xp 00000000 ca:01 2229043                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libzip.so
+7f4a9df4c000-7f4a9e14c000 ---p 0001a000 ca:01 2229043                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libzip.so
+7f4a9e14c000-7f4a9e14d000 rw-p 0001a000 ca:01 2229043                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libzip.so
+7f4a9e14d000-7f4a9e159000 r-xp 00000000 ca:01 3670046                    /lib64/libnss_files-2.12.so
+7f4a9e159000-7f4a9e359000 ---p 0000c000 ca:01 3670046                    /lib64/libnss_files-2.12.so
+7f4a9e359000-7f4a9e35a000 r--p 0000c000 ca:01 3670046                    /lib64/libnss_files-2.12.so
+7f4a9e35a000-7f4a9e35b000 rw-p 0000d000 ca:01 3670046                    /lib64/libnss_files-2.12.so
+7f4a9e35b000-7f4a9e384000 r-xp 00000000 ca:01 2229077                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libjava.so
+7f4a9e384000-7f4a9e584000 ---p 00029000 ca:01 2229077                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libjava.so
+7f4a9e584000-7f4a9e586000 rw-p 00029000 ca:01 2229077                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libjava.so
+7f4a9e586000-7f4a9e593000 r-xp 00000000 ca:01 2229030                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libverify.so
+7f4a9e593000-7f4a9e792000 ---p 0000d000 ca:01 2229030                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libverify.so
+7f4a9e792000-7f4a9e794000 rw-p 0000c000 ca:01 2229030                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/libverify.so
+7f4a9e794000-7f4a9e79b000 r-xp 00000000 ca:01 3670058                    /lib64/librt-2.12.so
+7f4a9e79b000-7f4a9e99a000 ---p 00007000 ca:01 3670058                    /lib64/librt-2.12.so
+7f4a9e99a000-7f4a9e99b000 r--p 00006000 ca:01 3670058                    /lib64/librt-2.12.so
+7f4a9e99b000-7f4a9e99c000 rw-p 00007000 ca:01 3670058                    /lib64/librt-2.12.so
+7f4a9e99c000-7f4a9ea1f000 r-xp 00000000 ca:01 3670038                    /lib64/libm-2.12.so
+7f4a9ea1f000-7f4a9ec1e000 ---p 00083000 ca:01 3670038                    /lib64/libm-2.12.so
+7f4a9ec1e000-7f4a9ec1f000 r--p 00082000 ca:01 3670038                    /lib64/libm-2.12.so
+7f4a9ec1f000-7f4a9ec20000 rw-p 00083000 ca:01 3670038                    /lib64/libm-2.12.so
+7f4a9ec20000-7f4a9f782000 r-xp 00000000 ca:01 2229071                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/server/libjvm.so
+7f4a9f782000-7f4a9f982000 ---p 00b62000 ca:01 2229071                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/server/libjvm.so
+7f4a9f982000-7f4a9fa45000 rw-p 00b62000 ca:01 2229071                    /usr/local/java/jdk1.7.0_55/jre/lib/amd64/server/libjvm.so
+7f4a9fa45000-7f4a9fa86000 rw-p 00000000 00:00 0 
+7f4a9fa86000-7f4a9fc10000 r-xp 00000000 ca:01 3670030                    /lib64/libc-2.12.so
+7f4a9fc10000-7f4a9fe10000 ---p 0018a000 ca:01 3670030                    /lib64/libc-2.12.so
+7f4a9fe10000-7f4a9fe14000 r--p 0018a000 ca:01 3670030                    /lib64/libc-2.12.so
+7f4a9fe14000-7f4a9fe15000 rw-p 0018e000 ca:01 3670030                    /lib64/libc-2.12.so
+7f4a9fe15000-7f4a9fe1a000 rw-p 00000000 00:00 0 
+7f4a9fe1a000-7f4a9fe1c000 r-xp 00000000 ca:01 3670036                    /lib64/libdl-2.12.so
+7f4a9fe1c000-7f4aa001c000 ---p 00002000 ca:01 3670036                    /lib64/libdl-2.12.so
+7f4aa001c000-7f4aa001d000 r--p 00002000 ca:01 3670036                    /lib64/libdl-2.12.so
+7f4aa001d000-7f4aa001e000 rw-p 00003000 ca:01 3670036                    /lib64/libdl-2.12.so
+7f4aa001e000-7f4aa0034000 r-xp 00000000 ca:01 1706220                    /usr/local/java/jdk1.7.0_55/lib/amd64/jli/libjli.so
+7f4aa0034000-7f4aa0234000 ---p 00016000 ca:01 1706220                    /usr/local/java/jdk1.7.0_55/lib/amd64/jli/libjli.so
+7f4aa0234000-7f4aa0235000 rw-p 00016000 ca:01 1706220                    /usr/local/java/jdk1.7.0_55/lib/amd64/jli/libjli.so
+7f4aa0235000-7f4aa024c000 r-xp 00000000 ca:01 3670054                    /lib64/libpthread-2.12.so
+7f4aa024c000-7f4aa044c000 ---p 00017000 ca:01 3670054                    /lib64/libpthread-2.12.so
+7f4aa044c000-7f4aa044d000 r--p 00017000 ca:01 3670054                    /lib64/libpthread-2.12.so
+7f4aa044d000-7f4aa044e000 rw-p 00018000 ca:01 3670054                    /lib64/libpthread-2.12.so
+7f4aa044e000-7f4aa0452000 rw-p 00000000 00:00 0 
+7f4aa0452000-7f4aa0472000 r-xp 00000000 ca:01 3670023                    /lib64/ld-2.12.so
+7f4aa0472000-7f4aa0475000 r--s 0001b000 fd:00 10749091                   /data0/java/elasticsearch-1.6.2/lib/lucene-sandbox-4.10.4.jar
+7f4aa0475000-7f4aa049a000 rw-p 00000000 00:00 0 
+7f4aa049a000-7f4aa049f000 rw-p 00000000 00:00 0 
+7f4aa049f000-7f4aa04dc000 rw-p 00000000 00:00 0 
+7f4aa04dc000-7f4aa055f000 rw-p 00000000 00:00 0 
+7f4aa055f000-7f4aa0562000 ---p 00000000 00:00 0 
+7f4aa0562000-7f4aa0664000 rw-p 00000000 00:00 0 
+7f4aa0664000-7f4aa0665000 r--s 00009000 fd:00 10748859                   /data0/java/elasticsearch-1.6.2/plugins/analysis-ik/httpmime-4.5.jar
+7f4aa0665000-7f4aa0666000 r--s 00008000 fd:00 10749119                   /data0/java/elasticsearch-1.6.2/lib/lucene-memory-4.10.4.jar
+7f4aa0666000-7f4aa066e000 rw-s 00000000 ca:01 4981926                    /tmp/hsperfdata_java/13283
+7f4aa066e000-7f4aa066f000 rw-p 00000000 00:00 0 
+7f4aa066f000-7f4aa0670000 r--p 00000000 00:00 0 
+7f4aa0670000-7f4aa0671000 rw-p 00000000 00:00 0 
+7f4aa0671000-7f4aa0672000 r--p 0001f000 ca:01 3670023                    /lib64/ld-2.12.so
+7f4aa0672000-7f4aa0673000 rw-p 00020000 ca:01 3670023                    /lib64/ld-2.12.so
+7f4aa0673000-7f4aa0674000 rw-p 00000000 00:00 0 
+7fffa5cec000-7fffa5d01000 rw-p 00000000 00:00 0                          [stack]
+7fffa5deb000-7fffa5dec000 r-xp 00000000 00:00 0                          [vdso]
+ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+VM Arguments:
+jvm_args: -Xms256m -Xmx1g -Djava.awt.headless=true -XX:+UseParNewGC -XX:+UseConcMarkSweepGC -XX:CMSInitiatingOccupancyFraction=75 -XX:+UseCMSInitiatingOccupancyOnly -XX:+HeapDumpOnOutOfMemoryError -XX:+DisableExplicitGC -Dfile.encoding=UTF-8 -Delasticsearch -Des.path.home=/data0/java/elasticsearch-1.6.2 
+java_command: org.elasticsearch.bootstrap.Elasticsearch
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+JAVA_HOME=/usr/local/java/jdk1.7.0_55
+JRE_HOME=/usr/local/java/default/jre
+CLASSPATH=/usr/local/java/default/lib/dt.jar:/usr/local/java/default/lib/tools.jar:/usr/local/java/default/jre/lib:.:
+PATH=/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/usr/local/java/default/bin:.:/usr/local/java/ant/bin:/home/java/bin
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x993980], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGBUS: [libjvm.so+0x993980], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGFPE: [libjvm.so+0x8106e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGPIPE: [libjvm.so+0x8106e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGXFSZ: [libjvm.so+0x8106e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGILL: [libjvm.so+0x8106e0], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGUSR1: SIG_DFL, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGUSR2: [libjvm.so+0x811bd0], sa_mask[0]=0x00000000, sa_flags=0x10000004
+SIGHUP: [libjvm.so+0x812b40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGINT: SIG_IGN, sa_mask[0]=0x00000000, sa_flags=0x00000000
+SIGTERM: [libjvm.so+0x812b40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+SIGQUIT: [libjvm.so+0x812b40], sa_mask[0]=0x7ffbfeff, sa_flags=0x10000004
+
+
+---------------  S Y S T E M  ---------------
+
+OS:CentOS release 6.6 (Final)
+
+uname:Linux 2.6.32-504.el6.x86_64 #1 SMP Wed Oct 15 04:27:16 UTC 2014 x86_64
+libc:glibc 2.12 NPTL 2.12 
+rlimit: STACK 10240k, CORE 0k, NPROC 62289, NOFILE 1048576, AS infinity
+load average:0.44 0.34 0.35
+
+/proc/meminfo:
+MemTotal:        8028456 kB
+MemFree:           44552 kB
+Buffers:          130400 kB
+Cached:          2312928 kB
+SwapCached:        20568 kB
+Active:          5304504 kB
+Inactive:        2414552 kB
+Active(anon):    4151540 kB
+Inactive(anon):  1124856 kB
+Active(file):    1152964 kB
+Inactive(file):  1289696 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:       8388604 kB
+SwapFree:        8075308 kB
+Dirty:               160 kB
+Writeback:             0 kB
+AnonPages:       5259972 kB
+Mapped:            90780 kB
+Shmem:               396 kB
+Slab:             155844 kB
+SReclaimable:     123064 kB
+SUnreclaim:        32780 kB
+KernelStack:        3912 kB
+PageTables:        31796 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:    12402832 kB
+Committed_AS:    9443592 kB
+VmallocTotal:   34359738367 kB
+VmallocUsed:       26584 kB
+VmallocChunk:   34359709564 kB
+HardwareCorrupted:     0 kB
+AnonHugePages:         0 kB
+HugePages_Total:       0
+HugePages_Free:        0
+HugePages_Rsvd:        0
+HugePages_Surp:        0
+Hugepagesize:       2048 kB
+DirectMap4k:     8388608 kB
+DirectMap2M:           0 kB
+
+
+CPU:total 4 (6 cores per cpu, 2 threads per core) family 6 model 45 stepping 7, cmov, cx8, fxsr, mmx, sse, sse2, sse3, ssse3, sse4.1, sse4.2, popcnt, aes, ht, tsc, tscinvbit, tscinv
+
+/proc/cpuinfo:
+processor   : 0
+vendor_id   : GenuineIntel
+cpu family  : 6
+model       : 45
+model name  : Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz
+stepping    : 7
+microcode   : 1808
+cpu MHz     : 2000.036
+cache size  : 15360 KB
+physical id : 3
+siblings    : 1
+core id     : 0
+cpu cores   : 1
+apicid      : 3
+initial apicid  : 3
+fpu     : yes
+fpu_exception   : yes
+cpuid level : 13
+wp      : yes
+flags       : fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2 ss ht syscall nx lm constant_tsc rep_good unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt tsc_deadline_timer aes hypervisor lahf_lm ida arat pln pts dts
+bogomips    : 4000.07
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 46 bits physical, 48 bits virtual
+power management:
+
+processor   : 1
+vendor_id   : GenuineIntel
+cpu family  : 6
+model       : 45
+model name  : Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz
+stepping    : 7
+microcode   : 1808
+cpu MHz     : 2000.036
+cache size  : 15360 KB
+physical id : 3
+siblings    : 1
+core id     : 0
+cpu cores   : 1
+apicid      : 3
+initial apicid  : 3
+fpu     : yes
+fpu_exception   : yes
+cpuid level : 13
+wp      : yes
+flags       : fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2 ss ht syscall nx lm constant_tsc rep_good unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt tsc_deadline_timer aes hypervisor lahf_lm ida arat pln pts dts
+bogomips    : 4000.07
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 46 bits physical, 48 bits virtual
+power management:
+
+processor   : 2
+vendor_id   : GenuineIntel
+cpu family  : 6
+model       : 45
+model name  : Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz
+stepping    : 7
+microcode   : 1808
+cpu MHz     : 2000.036
+cache size  : 15360 KB
+physical id : 3
+siblings    : 1
+core id     : 0
+cpu cores   : 1
+apicid      : 3
+initial apicid  : 3
+fpu     : yes
+fpu_exception   : yes
+cpuid level : 13
+wp      : yes
+flags       : fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2 ss ht syscall nx lm constant_tsc rep_good unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt tsc_deadline_timer aes hypervisor lahf_lm ida arat pln pts dts
+bogomips    : 4000.07
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 46 bits physical, 48 bits virtual
+power management:
+
+processor   : 3
+vendor_id   : GenuineIntel
+cpu family  : 6
+model       : 45
+model name  : Intel(R) Xeon(R) CPU E5-2620 0 @ 2.00GHz
+stepping    : 7
+microcode   : 1808
+cpu MHz     : 2000.036
+cache size  : 15360 KB
+physical id : 3
+siblings    : 1
+core id     : 0
+cpu cores   : 1
+apicid      : 3
+initial apicid  : 3
+fpu     : yes
+fpu_exception   : yes
+cpuid level : 13
+wp      : yes
+flags       : fpu de tsc msr pae cx8 sep cmov pat clflush mmx fxsr sse sse2 ss ht syscall nx lm constant_tsc rep_good unfair_spinlock pni pclmulqdq ssse3 cx16 sse4_1 sse4_2 popcnt tsc_deadline_timer aes hypervisor lahf_lm ida arat pln pts dts
+bogomips    : 4000.07
+clflush size    : 64
+cache_alignment : 64
+address sizes   : 46 bits physical, 48 bits virtual
+power management:
+
+
+
+Memory: 4k page, physical 8028456k(44552k free), swap 8388604k(8075308k free)
+
+vm_info: Java HotSpot(TM) 64-Bit Server VM (24.55-b03) for linux-amd64 JRE (1.7.0_55-b13), built on Mar 17 2014 19:43:58 by "java_re" with gcc 4.3.0 20080428 (Red Hat 4.3.0-8)
+
+time: Fri Dec 11 04:46:06 2015
+elapsed time: 125605 seconds
+
